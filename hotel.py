@@ -1,3 +1,13 @@
+class Hotel:
+    def __init__(self, db):
+        self.db = db
+    
+    def aggiungi(self, nome, descrizione):
+        self.db.cursor.execute("INSERT INTO hotel (nome, descrizione) VALUES (?, ?)", (nome, descrizione))
+        self.db.conn.commit()
+        print("Risorsa aggiunta con successo.")
+        
+
 class PrenotazioneHotel:
     def __init__(self, db):
         self.db = db
